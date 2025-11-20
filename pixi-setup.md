@@ -27,8 +27,16 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    Should return something like `pixi 0.X.X`
 
-3. I strongly recommend using the VSCode command line tools (assuming you are using VSCode).
+3. I strongly recommend using the VSCode command line tools (assuming you are using VSCode). To do this,
    
+   - Open VS Code
+   - Open the Command Palette using `cmd + shift + P`
+   - Click on `Shell Command: install 'code' command in PATH` (you might need to search it).
+     
+   ![VS Code shell command](<img width="756" height="191" alt="Screenshot 2025-11-20 at 3 13 31 PM" src="https://github.com/user-attachments/assets/770cadeb-1a44-49fb-8157-1110619ef878" />)
+
+   Once done, restart terminal and test the command.
+
 
 ## Setting up ROS2 using Pixi
 
@@ -42,11 +50,73 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    cd my_ros2_project
    ```
-   
-2. Now let's add ROS2.
+   Now run:
 
    ```
-   pixi add 
+   code pixi.toml
    ```
+   The file should look similar to this:
    
+   ```toml
+   [workspace]
+   channels = ["conda-forge"]
+   name = "my_ros2_project"
+   platforms = ["osx-arm64"]
+   version = "0.1.0"
+   
+   [tasks]
+   
+   [dependencies]
+
+   ```
+
+   
+2. Now let's add our ROS2 configurations.
+
+   ```toml
+   [workspace]
+   name = "my_ros2_project"
+   channels = ["robostack-staging", "conda-forge"]
+   platforms = ["osx-arm64"]
+   
+   [dependencies]
+   ros-humble-desktop = "*"
+   ros-humble-rclpy = "*"
+   colcon-common-extensions = "*"
+   python = "3.10.*"
+   pip = "*"
+   
+   [activation]
+   scripts = ["install/setup.sh"]
+   
+   [activation.env]
+   ROS_LOCALHOST_ONLY = "1"
+   ROS_DOMAIN_ID = "0"
+
+   ```
+
+   What each line does:
+
+   `[workspace]`
+   - `channels = ["robostack-staging", "conda-forge"]` -> channels are like the sources for our packages, without them Pixi will not know where to find the packages to install (i.e. robostack-staging is the channel for our ros-humble-desktop package).
+   
+   `[dependencies]`
+   - `ros-humble-desktop` -> installs the ros-humble-desktop package. the ` = "*"` line just tells Pixi to install all the submodules in the package.
+   - `ros-humble-rclpy` -> installs the Python interface for ROS2 (RCLPY = ROS Client Library for Python); if you are using C++ for programming nodes, it would be `ros-humble-rclpp`.
+   - `colcon-common-extensions` -> required for building our own packages (for ROS2).
+   - `python = "3.10.*` -> any Python 3.10 version.
+   - `pip` -> pip for installing additional Python packages if necessary.
+  
+   `[activation]`
+   - `scripts = ["install/setup.sh"]` -> by adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS2 commands.
+  
+   `[activation.env]`
+   - `ROS_LOCALHOST_ONLY = "1"` -> ensures ROS nodes only communicate locally.
+   - `ROS_DOMAIN_ID = "0"` -> domain ID can be anything, just allows us to identify a network of nodes.
+
+3. Once we have finished editing the pixi.toml file, we are ready to install. Go back to terminal (ensure that you are in the correct directory, i.e. my_ros2_project) and run:
+   
+   ```
+   pixi install
+   ```
 [^1]: Package manager (system-level) for MacOS and Linux.
