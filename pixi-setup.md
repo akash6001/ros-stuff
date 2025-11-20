@@ -1,11 +1,11 @@
 # Setting up ROS2 with Pixi
 ## What is Pixi?
 
-Pixi is a package manager that enables users to create virtual environments which contain different packages. ROS2 is one of the various packages which is supported by Pixi, and perhaps the simplest way to install and use ROS2 on MacOS is through Pixi.
+Pixi[^1] is a package manager that enables users to create virtual environments which contain different packages. ROS2 is one of the various packages which is supported by Pixi, and perhaps the simplest way to install and use ROS2 on MacOS is through Pixi.
 
 ## Installing Pixi
 
-1. Open terminal and ensure that Homebrew[^1] is installed first. To check run:
+1. Open terminal and ensure that Homebrew[^2] is installed first. To check run:
    
    ```
    brew --version
@@ -175,4 +175,6 @@ Pixi is a package manager that enables users to create virtual environments whic
    - By adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS2 commands.
    - However, note that `source install/setup.sh` must still be run every time after running `colcon build`. The above only applies when testing the package without making any modifications.
 
-[^1]: Package manager (system-level) for MacOS and Linux.
+
+[^1]: [Pixi website](https://pixi.sh/latest/)
+[^2]: Package manager (system-level) for MacOS and Linux.
