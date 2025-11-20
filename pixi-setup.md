@@ -13,7 +13,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    If installed, this should return something like `Homebrew 5.X.X`. If **not installed** run:
    
    ```
-   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 2. Once we have confirmed that Homebrew is installed, we can proceed to install Pixi.
    
@@ -27,7 +27,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    Should return something like `pixi 0.X.X`
 
-3. I strongly recommend using the VSCode command line tools (assuming you are using VSCode). To do this,
+3. I strongly recommend using the VSCode command line tool (assuming you are using VSCode). To do this,
    
    - Open VS Code
    - Open the Command Palette using `cmd + shift + P`
@@ -35,7 +35,7 @@ Pixi is a package manager that enables users to create virtual environments whic
      
    ![VS Code shell command](https://github.com/user-attachments/assets/770cadeb-1a44-49fb-8157-1110619ef878)
 
-   Once done, restart terminal and test the command.
+   Once done, restart terminal and test the command (`code`).
 
 
 ## Setting up ROS2 using Pixi
@@ -45,23 +45,23 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    pixi init my_ros2_project
    ```
-   This will create a new directory called `my_ros2_project` (of course, you can change the name if you want), which will contain a `pixi.toml` file. This file tells Pixi which packages to install in the workspace. To check, run:
    
+   This will create a new directory called `my_ros2_project` (of course, you can change the name if you want), which will contain a `pixi.toml` file. This file tells Pixi which packages to install in the workspace. To check the `pixi.toml` file:
    ```
    cd my_ros2_project
    ```
+   
    followed by
-
    ```
    code pixi.toml
    ```
 
-   _or if you don't want to use VS Code:_
+   _or alternatively:_
    ```
-   micro pixi.toml
+   nano pixi.toml
    ```
    
-   The file should look similar to this:
+2. The `pixi.toml` file should look similar to this:
    
    ```toml
    [workspace]
@@ -76,14 +76,14 @@ Pixi is a package manager that enables users to create virtual environments whic
 
    ```
 
-   
-1. Now let's add our ROS2 configurations.
+   Now let's add our ROS2 configurations.
 
    ```toml
    [workspace]
    name = "my_ros2_project"
    channels = ["robostack-staging", "conda-forge"]
    platforms = ["osx-arm64"]
+   version = "0.1.0"
    
    [dependencies]
    ros-humble-desktop = "*"
@@ -135,7 +135,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    pixi shell
    ```
-   Note that this command will only work in directories where the Pixi environment has already been set up.
+   Note that this command will only work in directories where the Pixi environment has already been set up (i.e. if you run it outside of my_ros2_project, it will raise an error).
    
    ```
    ros2 pkg create --build-type ament_python --destination-directory src --node-name my_ros_node my_ros_pkg
