@@ -24,7 +24,7 @@ Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux`
    
    note that the shortcuts are applied in 2 stages - `ctrl + b` first, followed by the subsequent key.
 
-   [Example]("https://github.com/user-attachments/assets/d35bf775-a85f-4ac6-b901-d70d6a8f03e2")
+   ![Example 1]("https://github.com/user-attachments/assets/d35bf775-a85f-4ac6-b901-d70d6a8f03e2")
 
    To close a tmux pane run:
 
@@ -41,6 +41,7 @@ Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux`
    ```
 
 2. From here, always run `tmux` first (before running `pixi shell` or `pixi run`).
-   
+
+   ![Example 2]("https://github.com/user-attachments/assets/ceb0e411-92de-411d-b6dd-03a0557f8347")   
 
 [^1]: [tmux wiki](https://github.com/tmux/tmux/wiki)
