@@ -55,6 +55,12 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    code pixi.toml
    ```
+
+   or if you don't want to use VS Code:
+   ```
+   micro pixi.toml
+   ```
+   
    The file should look similar to this:
    
    ```toml
@@ -71,7 +77,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
 
    
-2. Now let's add our ROS2 configurations.
+1. Now let's add our ROS2 configurations.
 
    ```toml
    [workspace]
@@ -114,7 +120,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    - `ROS_LOCALHOST_ONLY = "1"` -> ensures ROS nodes only communicate locally.
    - `ROS_DOMAIN_ID = "0"` -> domain ID can be anything, just allows us to identify a network of nodes.
 
-3. Once we have finished editing the pixi.toml file, we are ready to install. Go back to terminal (ensure that you are in the correct directory, i.e. my_ros2_project) and run:
+2. Once we have finished editing the pixi.toml file, we are ready to install. Go back to terminal (ensure that you are in the correct directory, i.e. my_ros2_project) and run:
    
    ```
    pixi install
