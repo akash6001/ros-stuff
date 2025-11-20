@@ -91,6 +91,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    colcon-common-extensions = "*"
    python = "3.10.*"
    pip = "*"
+   graphviz = "*"
    
    [activation.env]
    ROS_LOCALHOST_ONLY = "1"
@@ -109,6 +110,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    - `colcon-common-extensions` -> required for building our own packages (for ROS2).
    - `python = "3.10.*` -> any Python 3.10 version.
    - `pip` -> pip for installing additional Python packages if necessary.
+   - `graphviz` -> required for ROS visualisation tools (e.g. rqt_graph)
   
    `[activation.env]`
    - `ROS_LOCALHOST_ONLY = "1"` -> ensures ROS nodes only communicate locally.
