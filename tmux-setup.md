@@ -42,6 +42,28 @@ Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux`
 
 2. From here, always run `tmux` first (before running `pixi shell` or `pixi run`).
 
-   ![Example 2](https://github.com/user-attachments/assets/ceb0e411-92de-411d-b6dd-03a0557f8347)   
+   ![Example 2](https://github.com/user-attachments/assets/ceb0e411-92de-411d-b6dd-03a0557f8347)
+
+### Why the order of operations matters here
+- `tmux` has a specific list of environment variables it preserves when creating new windows or panes.
+- If we run `tmux` after running `pixi shell`, some environment variables which are required for ROS2 are not carried over into tmux session. This occurs because `tmux` was designed before ROS existed.
+- The specific environment variable in question is the `AMENT_PREFIX_PATH`. You can confirm this behaviour yourself by doing a simple test and running the following four commands one by one:
+
+1. `pixi` first
+  ```
+  pixi shell
+  ```
+  ```
+  echo "initial: $AMENT_PREFIX_PATH"
+  ```
+2. `tmux` second
+  ```
+  tmux
+  ```
+  ```
+  echo "final: $AMENT_PREFIX_PATH"
+  ```
+   note that the path disappeared.
+3. repeat the procedure above but swap the order of operations (i.e. `tmux` before `pixi`)
 
 [^1]: [tmux wiki](https://github.com/tmux/tmux/wiki)
