@@ -50,20 +50,21 @@ Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux`
 - The specific environment variable in question is the `AMENT_PREFIX_PATH`. You can confirm this behaviour yourself by doing a simple test and running the following four commands one by one:
 
 1. `pixi` first
-  ```
-  pixi shell
-  ```
-  ```
-  echo "initial: $AMENT_PREFIX_PATH"
-  ```
+   ```
+   pixi shell
+   ```
+   ```
+   echo "initial: $AMENT_PREFIX_PATH"
+   ```
 2. `tmux` second
-  ```
-  tmux
-  ```
-  ```
-  echo "final: $AMENT_PREFIX_PATH"
-  ```
-   note that the path disappeared.
-3. repeat the procedure above but swap the order of operations (i.e. `tmux` before `pixi`)
+   ```
+   tmux
+   ```
+   ```
+   echo "final: $AMENT_PREFIX_PATH"
+   ```
+   _note that the path disappears._
+   
+4. repeat the procedure above but swap the order of operations (i.e. `tmux` before `pixi`)
 
 [^1]: [tmux wiki](https://github.com/tmux/tmux/wiki)
