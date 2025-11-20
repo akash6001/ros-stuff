@@ -33,7 +33,7 @@ Pixi is a package manager that enables users to create virtual environments whic
    - Open the Command Palette using `cmd + shift + P`
    - Click on `Shell Command: install 'code' command in PATH` (you might need to search it).
      
-   ![VS Code shell command](<img width="756" height="191" alt="Screenshot 2025-11-20 at 3 13 31 PM" src="https://github.com/user-attachments/assets/770cadeb-1a44-49fb-8157-1110619ef878" />)
+   ![VS Code shell command](https://github.com/user-attachments/assets/770cadeb-1a44-49fb-8157-1110619ef878)
 
    Once done, restart terminal and test the command.
 
@@ -119,4 +119,20 @@ Pixi is a package manager that enables users to create virtual environments whic
    ```
    pixi install
    ```
+   This installs the packages as stated in the toml file.
+
+## Using ROS2 with Pixi
+
+1. Now that we have ROS2 installed, we are ready to start using it. First, we start the pixi shell:
+   
+   ```
+   pixi shell
+   ```
+2. Next, let's test that ROS2 works with:
+   
+   ```
+   ros2 run turtlesim turtlesim_node
+   ```
+   Should spawn a random turtle.
+
 [^1]: Package manager (system-level) for MacOS and Linux.
