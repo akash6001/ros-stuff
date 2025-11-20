@@ -40,6 +40,7 @@ Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux`
    cd my_ros2_project
    ```
 
-2. From here, always run tmux first (before running pixi shell or pixi run).
+2. From here, always run `tmux` first (before running `pixi shell` or `pixi run`).
+   
 
 [^1]: [tmux wiki](https://github.com/tmux/tmux/wiki)
