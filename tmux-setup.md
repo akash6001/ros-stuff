@@ -1,4 +1,4 @@
-# TMUX
+# tmux
 ## What is tmux?
 
 Short for terminal multiplexer, `tmux` [^1] allows different terminal programs to be run simultaneously in separate, organised terminal panels. This is especially useful for ROS/robotics applications as we normally have different programs running concurrently and might need them all active for troubleshooting purposes.
