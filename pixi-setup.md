@@ -1,7 +1,7 @@
-# Setting up ROS2 with Pixi
+# Setting up ROS 2 with Pixi
 ## What is Pixi?
 
-Pixi[^1] is a package manager that enables users to create virtual environments which contain different packages. ROS2 is one of the various packages which is supported by Pixi, and perhaps the simplest way to install and use ROS2 on MacOS is through Pixi.
+Pixi[^1] is a package manager that enables users to create virtual environments which contain different packages. ROS 2 is one of the various packages which is supported by Pixi, and perhaps the simplest way to install and use ROS 2 on MacOS is through Pixi.
 
 ## Installing Pixi
 
@@ -76,45 +76,53 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
 
    ```
 
-   Now let's add our ROS2 configurations.
+   Now let's add our ROS 2 configurations.
 
    ```toml
-   [workspace]
-   name = "my_ros2_project"
-   channels = ["robostack-staging", "conda-forge"]
-   platforms = ["osx-arm64"]
-   version = "0.1.0"
-   
-   [dependencies]
-   ros-humble-desktop = "*"
-   ros-humble-rclpy = "*"
-   colcon-common-extensions = "*"
-   python = "3.10.*"
-   pip = "*"
-   graphviz = "*"
-   
-   [activation.env]
-   ROS_LOCALHOST_ONLY = "1"
-   ROS_DOMAIN_ID = "0"
+    [workspace]
+    name = "my_ros2_project"
+    version = "0.1.0"
+    description = "ROS 2 Humble dev environment"
+    authors = ["Your Name <your@email.com>"]
+    channels = ["robostack-staging", "conda-forge"]
+    platforms = ["osx-arm64", "osx-64"]
 
+    [dependencies]
+    ros-humble-desktop = "*"
+    ros-humble-rclpy = "*"
+    colcon-common-extensions = "*"
+    python = "3.10.*"
+    pip = "*"
+    graphviz = "*"
+
+    [activation.env]
+    ROS_LOCALHOST_ONLY = "1"
+    ROS_DOMAIN_ID = "0"
    ```
 
-   What each line does:
+   **What each line does:**
 
    `[workspace]`
    - `channels = ["robostack-staging", "conda-forge"]` -> channels are like the sources for our packages, without them Pixi will not know where to find the packages to install (i.e. robostack-staging is the channel for our ros-humble-desktop package).
+   - `platforms = ["osx-arm64", "osx-64"]` -> ensures that the environment is compatible with both ARM64 and AMD64 architectures => allows easy transferability between macOS and Linux.
+   - `version`, `description`, `authors` -> metadata, just to keep track of changes (does not affect environment functionality).
    
    `[dependencies]`
    - `ros-humble-desktop` -> installs the ros-humble-desktop package. the ` = "*"` line just tells Pixi to install all the submodules in the package.
-   - `ros-humble-rclpy` -> installs the Python interface for ROS2 (RCLPY = ROS Client Library for Python); if you are using C++ for programming nodes, it would be `ros-humble-rclpp`.
+   - `ros-humble-rclpy` -> installs the Python interface for ROS 2 (RCLPY = ROS Client Library for Python); if you are using C++ for programming nodes, it would be `ros-humble-rclcpp`.
    - `colcon-common-extensions` -> required for building our own packages (for ROS2).
-   - `python = "3.10.*` -> any Python 3.10 version.
+   - `python = "3.10.*` -> any Python 3.10 version (new Python versions are not compatible with Humble).
    - `pip` -> pip for installing additional Python packages if necessary.
-   - `graphviz` -> required for ROS visualisation tools (e.g. rqt_graph)
+   - `graphviz` -> required for ROS visualisation tools (e.g. rqt_graph).
   
    `[activation.env]`
    - `ROS_LOCALHOST_ONLY = "1"` -> ensures ROS nodes only communicate locally.
    - `ROS_DOMAIN_ID = "0"` -> domain ID can be anything, just allows us to identify a network of nodes.
+   
+
+   **Some caveats**
+   - _Although robostack provides packages for the new ROS distros (i.e. ros-jazzy-desktop, ros-kilted-desktop), **they do not work on macOS** due to a conflict in system architecture (they do not have complete support for ARM64 which is what macOS uses)._
+   - If you want to use the newer distros (Jazzy or Kilted), you can try the Docker method instead.
 
 2. Once we have finished editing the pixi.toml file, we are ready to install. Go back to terminal (ensure that you are in the correct directory, i.e. my_ros2_project) and run:
    
@@ -125,7 +133,7 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
 
 ## Using ROS2 with Pixi
 
-1. Now that we have ROS2 installed, we are ready to start using it. Let's test it out by running the following:
+1. Now that we have ROS 2 installed, we are ready to start using it. Let's test it out by running the following:
    
    ```
    pixi run ros2 run turtlesim turtlesim_node
@@ -172,7 +180,7 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
    scripts = ["install/setup.sh"]
    ```
 
-   - By adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS2 commands.
+   - By adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS 2 commands (but we still need pixi run or pixi shell).
    - However, note that `source install/setup.sh` must still be run every time after running `colcon build`. The above only applies when testing the package without making any modifications.
 
 
