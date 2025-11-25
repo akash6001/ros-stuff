@@ -8,5 +8,5 @@ However, if you are stuck with a Mac it is totally fine because you can still le
 
 | S/N  | Item | Description |
 | ------------- | ------------- | ------------- |
-| 1.  | [Setting up ROS 2 using Pixi](https://github.com/akash6001/ros2-macos/blob/main/pixi-setup.md)  | Pixi is a package manager which supports ROS 2. |
+| 1.  | [Setting up ROS 2 using Pixi](https://github.com/akash6001/ros2-macos/blob/main/pixi-setup.md)  | Pixi is a package manager for Python which supports ROS 2. |
 | 2.  | [Using TMUX together with Pixi](https://github.com/akash6001/ros2-macos/blob/main/tmux-setup.md)  | TMUX makes it easy to manage multiple terminal panes, which is essential for ROS 2 development. |
