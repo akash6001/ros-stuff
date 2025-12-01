@@ -1,6 +1,6 @@
 ## Writing a script to automate the ROS 2 environment setup
 
-Assuming you have already gone through the steps in [Pixi setup](https://github.com/akash6001/ros-stuff/blob/main/pixi-setup.md), you might have noticed that there is a very long list of actions to take in order to setup a ROS environment with Pixi. The question now is, is it possible to automate everything?
+Assuming you have already gone through the steps in [Pixi setup](https://github.com/akash6001/ros-stuff/blob/main/1-pixi-setup.md), you might have noticed that there is a very long list of actions to take in order to setup a ROS environment with Pixi. The question now is, is it possible to automate everything?
 
 And the answer is yes. We can do this by means of a shell script.
 
