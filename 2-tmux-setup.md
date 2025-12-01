@@ -3,7 +3,7 @@
 
 Short for terminal multiplexer, `tmux` [^1] allows different terminal programs to be run simultaneously in separate, organised terminal panels. This is especially useful for ROS/robotics applications as we normally have different programs running concurrently and might need them all active for troubleshooting purposes.
 
-Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux` simultaneously, which is the reason why this tutorial exists. _If you have not already installed pixi, I encourage you to do that first - [Pixi setup](https://github.com/akash6001/ros2-macos/blob/main/pixi-setup.md)._
+Unfortunately, for MacOS there are some intricacies with using `pixi` and `tmux` simultaneously, which is the reason why this tutorial exists. _If you have not already installed pixi, I encourage you to do that first - [Pixi setup](https://github.com/akash6001/ros-stuff/blob/main/1-pixi-setup.md)._
 
 ## Installing and using tmux
 
