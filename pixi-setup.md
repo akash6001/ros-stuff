@@ -58,7 +58,7 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
 
    _or alternatively:_
    ```
-   nano pixi.toml
+   pico pixi.toml
    ```
    
 2. The `pixi.toml` file should look similar to this:
