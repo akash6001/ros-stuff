@@ -176,13 +176,13 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
    exit
    ```
 
-5. For the sake of convenience, we add the following to our `pixi.toml` file.
+5. For the sake of convenience, we can add the following to our `pixi.toml` file.
    ```toml
    [activation]
    scripts = ["install/setup.sh"]
    ```
 
-   - By adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS 2 commands (but we still need pixi run or pixi shell).
+   - By adding this line, we do not have to run `source install/setup.sh` every time we want to use ROS 2 commands (but we still need `pixi run` or `pixi shell`).
    - However, note that `source install/setup.sh` must still be run every time after running `colcon build`. The above only applies when testing the package without making any modifications.
 
 
