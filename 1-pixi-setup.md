@@ -40,28 +40,28 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
 
 ## Setting up ROS2 using Pixi
 
-1. We can now set up a Pixi workspace for ROS2. We will begin by creating a new directory for our ROS2 project.
+1. We can now set up a Pixi workspace for ROS2. We will begin by creating a new directory for our ROS2 project. Note that the directory will be created wherever your current working directory is.
    
    ```
    pixi init my_ros2_project
    ```
-   
    This will create a new directory called `my_ros2_project` (of course, you can change the name if you want), which will contain a `pixi.toml` file. This file tells Pixi which packages to install in the workspace. To check the `pixi.toml` file:
+   
    ```
    cd my_ros2_project
    ```
-   
    followed by
+   
    ```
    code pixi.toml
    ```
-
    _or alternatively:_
+   
    ```
    pico pixi.toml
    ```
    
-2. The `pixi.toml` file should look similar to this:
+3. The `pixi.toml` file should look similar to this:
    
    ```toml
    [workspace]
