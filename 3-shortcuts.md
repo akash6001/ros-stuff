@@ -127,3 +127,11 @@ And the answer is yes. We can do this by means of a shell script.
 
    **Notes**
    - What this does is create a shell command called `ros-new` that can be used to start new ROS 2 projects from scratch. The script creates the pixi.toml file and installs the necessary dependencies in the Pixi environment. Once the directory has been created, all you need to do is enter Pixi shell to start using ROS 2 commands.
+  
+3. You can test it out by running the following command in your terminal (you will need to restart the terminal after editing the ~/.zshrc file).
+
+   ```
+   ros-new test_project
+   ```
+
+   Note that you can replace `test_project` with any name, that is the whole point.
