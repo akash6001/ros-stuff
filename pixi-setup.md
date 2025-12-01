@@ -169,6 +169,12 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
    - Make sure you ran `colcon build` and check for build errors.
    - Run `source install/setup.sh` in the same session before running ROS 2 commands.
    - Confirm that your package names match in both your folder structure and `ros2 run` command.
+  
+   To exit pixi shell:
+   
+   ```
+   exit
+   ```
 
 5. For the sake of convenience, we add the following to our `pixi.toml` file.
    ```toml
