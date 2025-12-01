@@ -2,7 +2,7 @@
 
 The instructions provided here are meant to help set up ROS 2 on macOS.
 
-While it’s entirely possible to build and run many core ROS 2 functionalities on a Mac like simulations and general development, a Linux-based system ultimately offers the best experience for ROS work. This is due to the fact that the hardware interfaces which allow communication between computers and physical robots are built around the Linux system, so if you want to test code on a physical robot you would eventually need to transfer and execute it on an Ubuntu machine.  
+While it’s entirely possible to build and run many core ROS 2 functionalities on a Mac like simulations and general development, a Linux-based system ultimately offers the best experience for ROS work. This is due to the fact that the hardware interfaces which allow communication between computers and physical robots are built around the Linux system, so if you want to test code on a physical robot you would eventually need to transfer and execute it on an Ubuntu.  
 
 However, if you are stuck with a Mac it is totally fine because you can still learn, develop and test code (by simulation) using the methods shown here.
 
