@@ -91,8 +91,6 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
     ros-humble-desktop = "*"
     ros-humble-rclpy = "*"
     colcon-common-extensions = "*"
-    python = "3.10.*"
-    pip = "*"
     graphviz = "*"
 
     [activation.env]
@@ -111,8 +109,6 @@ Pixi[^1] is a package manager that enables users to create virtual environments 
    - `ros-humble-desktop` -> installs the ros-humble-desktop package. the ` = "*"` line just tells Pixi to install all the submodules in the package.
    - `ros-humble-rclpy` -> installs the Python interface for ROS 2 (RCLPY = ROS Client Library for Python); if you are using C++ for programming nodes, it would be `ros-humble-rclcpp`.
    - `colcon-common-extensions` -> required for building our own packages (for ROS2).
-   - `python = "3.10.*` -> any Python 3.10 version (new Python versions are not compatible with Humble).
-   - `pip` -> pip for installing additional Python packages if necessary.
    - `graphviz` -> required for ROS visualisation tools (e.g. rqt_graph).
   
    `[activation.env]`
